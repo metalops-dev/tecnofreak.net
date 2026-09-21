@@ -1946,6 +1946,25 @@ export interface CodeBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ImageGalleryBlock".
+ */
+export interface ImageGalleryBlock {
+  images?:
+    | {
+        image: number | Media;
+        /**
+         * Optional URL opened when this image is clicked.
+         */
+        url?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'imageGallery';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "KeyTakeawaysBlock".
  */
 export interface KeyTakeawaysBlock {

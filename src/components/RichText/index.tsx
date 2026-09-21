@@ -12,6 +12,7 @@ import {
 import { BannerBlock } from "@/blocks/Banner/Component";
 import { CallToActionBlock } from "@/blocks/CallToAction/Component";
 import { CodeBlock, type CodeBlockProps } from "@/blocks/Code/Component";
+import { ImageGalleryBlock } from "@/blocks/ImageGallery/Component";
 import { KeyTakeawaysBlock } from "@/blocks/KeyTakeaways/Component";
 import { MediaBlock } from "@/blocks/MediaBlock/Component";
 import { ProductBoxBlock } from "@/blocks/ProductBox/Component";
@@ -21,6 +22,7 @@ import { Media } from "@/components/Media";
 import type {
 	BannerBlock as BannerBlockProps,
 	CallToActionBlock as CTABlockProps,
+	ImageGalleryBlock as ImageGalleryBlockProps,
 	KeyTakeawaysBlock as KeyTakeawaysBlockProps,
 	MediaBlock as MediaBlockProps,
 	ProductBoxBlock as ProductBoxBlockProps,
@@ -28,11 +30,13 @@ import type {
 	YouTubeBlock as YouTubeBlockProps,
 } from "@/payload-types";
 import { cn } from "@/utilities/ui";
+import { isSafeImageLink } from "@/utilities/validateImageLink";
 
 type NodeTypes =
 	| DefaultNodeTypes
 	| SerializedBlockNode<
 			| CTABlockProps
+			| ImageGalleryBlockProps
 			| MediaBlockProps
 			| BannerBlockProps
 			| CodeBlockProps
@@ -51,9 +55,7 @@ const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
 	return `/${slug}`;
 };
 
-const jsxConverters: JSXConvertersFunction<NodeTypes> = ({
-	defaultConverters,
-}) => ({
+const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) => ({
 	...defaultConverters,
 	...LinkJSXConverter({ internalDocToHref }),
 	upload: ({ node }: any) => {
@@ -68,7 +70,7 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({
 				</a>
 			);
 		}
-		return (
+		const media = (
 			<Media
 				resource={uploadDoc as any}
 				size="(max-width: 768px) 100vw, 650px"
@@ -76,11 +78,17 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({
 				pictureClassName="my-6 block max-w-full"
 			/>
 		);
+		const imageLink = node?.fields?.url;
+		return isSafeImageLink(imageLink) ? (
+			<a href={imageLink} target="_blank" rel="noopener noreferrer">
+				{media}
+			</a>
+		) : (
+			media
+		);
 	},
 	blocks: {
-		banner: ({ node }) => (
-			<BannerBlock className="col-start-2 mb-4" {...node.fields} />
-		),
+		banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
 		mediaBlock: ({ node }) => (
 			<MediaBlock
 				className="col-start-1 col-span-3"
@@ -91,6 +99,7 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({
 				disableInnerContainer={true}
 			/>
 		),
+		imageGallery: ({ node }) => <ImageGalleryBlock {...node.fields} />,
 		code: ({ node }) => <CodeBlock className="col-start-2" {...node.fields} />,
 		cta: ({ node }) => <CallToActionBlock {...node.fields} />,
 		keyTakeaways: ({ node }) => <KeyTakeawaysBlock {...node.fields} />,

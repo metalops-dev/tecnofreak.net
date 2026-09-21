@@ -21,12 +21,14 @@ import { authenticated } from "../../access/authenticated";
 import { authenticatedOrPublished } from "../../access/authenticatedOrPublished";
 import { Banner } from "../../blocks/Banner/config";
 import { Code } from "../../blocks/Code/config";
+import { ImageGallery } from "../../blocks/ImageGallery/config";
 import { KeyTakeaways } from "../../blocks/KeyTakeaways/config";
 import { MediaBlock } from "../../blocks/MediaBlock/config";
 import { ProductBox } from "../../blocks/ProductBox/config";
 import { Quote } from "../../blocks/Quote/config";
 import { YouTube } from "../../blocks/YouTube/config";
 import { generatePreviewPath } from "../../utilities/generatePreviewPath";
+import { validateImageLink } from "../../utilities/validateImageLink";
 import { populateAuthors } from "./hooks/populateAuthors";
 import { revalidateDelete, revalidatePost } from "./hooks/revalidatePost";
 
@@ -100,6 +102,7 @@ export const Posts: CollectionConfig<"posts"> = {
 											blocks: [
 												Banner,
 												Code,
+												ImageGallery,
 												KeyTakeaways,
 												MediaBlock,
 												ProductBox,
@@ -107,7 +110,24 @@ export const Posts: CollectionConfig<"posts"> = {
 												YouTube,
 											],
 										}),
-										UploadFeature({ collections: { media: { fields: [] } } }),
+										UploadFeature({
+											collections: {
+												media: {
+													fields: [
+														{
+															name: "url",
+															type: "text",
+															label: "Destination URL",
+															admin: {
+																description:
+																	"Optional URL opened when this image is clicked.",
+															},
+															validate: validateImageLink,
+														},
+													],
+												},
+											},
+										}),
 										FixedToolbarFeature(),
 										InlineToolbarFeature(),
 										HorizontalRuleFeature(),
