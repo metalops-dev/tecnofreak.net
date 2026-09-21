@@ -19,6 +19,11 @@ export const ImageGallery: Block = {
 					type: "upload",
 					relationTo: "media",
 					required: true,
+					filterOptions: {
+						mimeType: {
+							like: "image/%",
+						},
+					},
 				},
 				{
 					name: "url",

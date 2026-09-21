@@ -7,7 +7,12 @@ export const ImageGalleryBlock: React.FC<ImageGalleryBlockProps> = ({ images }) 
 	return (
 		<div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
 			{images?.map(({ id, image, url }) => {
-				if (!image || typeof image !== "object") return null;
+				if (
+					!image ||
+					typeof image !== "object" ||
+					!image.mimeType?.startsWith("image/")
+				)
+					return null;
 
 				const media = (
 					<Media
