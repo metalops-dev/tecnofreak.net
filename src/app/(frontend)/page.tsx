@@ -6,9 +6,28 @@ import { PostCard } from "@/components/PostCard";
 
 export const dynamic = "force-dynamic";
 
-const SECONDARY = 4;
+const SECONDARY = 3;
 const FEED = 9;
 const TOP_TAGS = 12;
+
+const ESSENTIAL_GUIDES = [
+	{
+		href: "/xfer-records-serum-2-novedades-review",
+		title: "Serum 2: review, novedades y guía completa",
+	},
+	{
+		href: "/poops-ps5-java-v1-1-exploit-bd-j-para-ps5-guia",
+		title: "PS5: guía del exploit BD-J Poops-PS5-Java",
+	},
+	{
+		href: "/ps5-linux-ssd-m2-andy-nguyen-theflow",
+		title: "PS5 con Linux: soporte para SSD M.2",
+	},
+	{
+		href: "/swiss-v06r2041-gamecube-update",
+		title: "GameCube: actualización de Swiss",
+	},
+];
 
 export default async function HomePage() {
 	const payload = await getPayload({ config: configPromise });
@@ -140,6 +159,23 @@ export default async function HomePage() {
 									Todas las categorías
 								</Link>
 							</p>
+							<section className="mt-8 border-t-2 border-teal pt-5" aria-labelledby="essential-guides">
+								<h2 id="essential-guides" className="kicker text-fog">
+									Guías esenciales
+								</h2>
+								<ul className="m-0 mt-3 list-none divide-y divide-rule border-y border-rule p-0">
+									{ESSENTIAL_GUIDES.map((guide) => (
+										<li key={guide.href}>
+											<Link
+												href={guide.href}
+												className="block py-3 text-sm font-semibold leading-snug text-ink transition-colors hover:text-teal"
+											>
+												{guide.title}
+											</Link>
+										</li>
+									))}
+								</ul>
+							</section>
 							<div className="mt-8 border border-rule bg-paper-2 p-5">
 								<p className="kicker text-teal">RSS</p>
 								<p className="mt-2 text-sm leading-relaxed text-fog">
