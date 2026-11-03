@@ -81,20 +81,12 @@ export const PostCard: React.FC<{
 				className="flex h-full flex-col"
 				aria-label={post.title}
 			>
-				<div
-					className={`overflow-hidden bg-paper-2 ${
-						lead && hero ? "" : "relative aspect-[16/9]"
-					}`}
-				>
+				<div className="relative aspect-[16/9] overflow-hidden bg-paper-2">
 					{hero ? (
 						<Media
 							resource={hero}
-							className={lead ? "w-full" : "absolute inset-0 h-full w-full"}
-							imgClassName={
-								lead
-									? "h-auto w-full object-contain"
-									: "absolute inset-0 h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]"
-							}
+							className="absolute inset-0 h-full w-full"
+							imgClassName="absolute inset-0 h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]"
 							size={
 								lead
 									? "(min-width: 768px) 60vw, 100vw"
