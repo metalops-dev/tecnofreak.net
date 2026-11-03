@@ -77,6 +77,9 @@ export const Posts: CollectionConfig<"posts"> = {
 			name: "title",
 			type: "text",
 			required: true,
+			admin: {
+				description: "Recomendado: 40–90 caracteres.",
+			},
 		},
 		{
 			type: "tabs",
@@ -206,7 +209,12 @@ export const Posts: CollectionConfig<"posts"> = {
 							relationTo: "media",
 						}),
 
-						MetaDescriptionField({}),
+						MetaDescriptionField({
+							overrides: {
+								label:
+									"Descripción SEO y resumen de portada (recomendado: 110–160 caracteres)",
+							},
+						}),
 						PreviewField({
 							// if the `generateUrl` function is configured
 							hasGenerateFn: true,
