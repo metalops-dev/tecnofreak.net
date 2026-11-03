@@ -110,7 +110,7 @@ export const PostCard: React.FC<{
 					<h3
 						className={`font-display mt-1.5 font-bold leading-[1.12] tracking-tight transition-colors duration-100 group-hover:text-teal ${
 							lead
-								? "text-2xl sm:text-3xl lg:text-[2.1rem]"
+								? "line-clamp-3 min-h-[3.36em] text-2xl sm:text-3xl lg:text-[2.1rem]"
 								: "text-lg leading-snug"
 						}`}
 					>
