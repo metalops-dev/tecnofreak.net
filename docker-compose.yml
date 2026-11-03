@@ -28,7 +28,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: tecnofreak
     volumes:
-      - /mnt/tecnofreak/db_data:/var/lib/postgresql/data
+      - /mnt/tecnofreak/db_data:/var/lib/postgresql
 
 volumes:
   node_modules:
