@@ -6,7 +6,7 @@ import { PostCard } from "@/components/PostCard";
 
 export const dynamic = "force-dynamic";
 
-const SECONDARY = 4;
+const SECONDARY = 3;
 const FEED = 9;
 const TOP_TAGS = 12;
 
