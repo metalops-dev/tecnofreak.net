@@ -9,7 +9,6 @@ const nav = [
 	{ href: "/", label: "Inicio" },
 	{ href: "/posts", label: "Noticias" },
 	{ href: "/categorias", label: "Categorías" },
-	{ href: "/etiquetas", label: "Etiquetas" },
 	{ href: "/productos", label: "Productos" },
 	{ href: "/acerca", label: "Acerca" },
 ];
