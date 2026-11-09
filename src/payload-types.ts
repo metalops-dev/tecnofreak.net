@@ -232,6 +232,9 @@ export interface Page {
  */
 export interface Post {
   id: number;
+  /**
+   * Recomendado: 40–90 caracteres.
+   */
   title: string;
   heroImage?: (number | null) | Media;
   content: {
@@ -407,6 +410,10 @@ export interface FolderInterface {
 export interface Category {
   id: number;
   title: string;
+  /**
+   * Opcional. Se muestra en la página de categorías.
+   */
+  image?: (number | null) | Media;
   parent?: (number | null) | Category;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
@@ -482,6 +489,7 @@ export interface User {
   resetPasswordExpiration?: string | null;
   salt?: string | null;
   hash?: string | null;
+  resetPasswordRequestedAt?: string | null;
   loginAttempts?: number | null;
   lockUntil?: string | null;
   sessions?:
@@ -1408,6 +1416,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface CategoriesSelect<T extends boolean = true> {
   title?: T;
+  image?: T;
   parent?: T;
   generateSlug?: T;
   slug?: T;
@@ -1476,6 +1485,7 @@ export interface UsersSelect<T extends boolean = true> {
   resetPasswordExpiration?: T;
   salt?: T;
   hash?: T;
+  resetPasswordRequestedAt?: T;
   loginAttempts?: T;
   lockUntil?: T;
   sessions?:
@@ -1901,7 +1911,10 @@ export interface TaskSchedulePublish {
           value: number | Post;
         } | null);
     global?: string | null;
-    user?: (number | null) | User;
+    user?: {
+      relationTo: 'users';
+      value: number | User;
+    } | null;
   };
   output?: unknown;
 }

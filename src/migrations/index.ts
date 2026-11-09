@@ -5,6 +5,7 @@ import * as migration_20260914_194501_cleanup_unused_taxonomy from "./20260914_1
 import * as migration_20260914_194502_repair_product_category from "./20260914_194502_repair_product_category";
 import * as migration_20260914_194503_repair_product_category_column from "./20260914_194503_repair_product_category_column";
 import * as migration_20261103_090000_add_reset_password_requested_at from "./20261103_090000_add_reset_password_requested_at";
+import * as migration_20261109_231742_add_category_image from "./20261109_231742_add_category_image";
 
 export const migrations = [
 	{
@@ -41,5 +42,10 @@ export const migrations = [
 		up: migration_20261103_090000_add_reset_password_requested_at.up,
 		down: migration_20261103_090000_add_reset_password_requested_at.down,
 		name: "20261103_090000_add_reset_password_requested_at",
+	},
+	{
+		up: migration_20261109_231742_add_category_image.up,
+		down: migration_20261109_231742_add_category_image.down,
+		name: "20261109_231742_add_category_image",
 	},
 ];
