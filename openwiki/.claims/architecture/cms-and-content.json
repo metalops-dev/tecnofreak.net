@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:75bd0119404d102ac1f1a6c12f237df267da51f6972544b01d71ba502074ff02",
+  "claims": [
+    {
+      "id": "claim_f5b32db173e0484dbd0b1ec1c4f0ec5b",
+      "statement": "The Payload composition root configures the PostgreSQL database adapter, eight collections, Header and Footer globals, plugins, and Spanish admin translations.",
+      "evidence": [
+        {
+          "resource": "repo://src/payload.config.ts",
+          "version": "repo-file-v1:sha256:d89dca47603b130e74d9a1e4c730ad4f822e7162005adbb7720b689e089e6721"
+        }
+      ]
+    },
+    {
+      "id": "claim_06495da49b90499486225bf6978ba84b",
+      "statement": "Pages and posts use Payload drafts with scheduled publishing, and anonymous reads are limited to documents whose status is published.",
+      "evidence": [
+        {
+          "resource": "repo://src/access/authenticatedOrPublished.ts",
+          "version": "repo-file-v1:sha256:e417bfad613e4b86893601db3509a211a305ee15965eba281f4d7558e080bfde"
+        },
+        {
+          "resource": "repo://src/collections/Pages/index.ts",
+          "version": "repo-file-v1:sha256:e5d54548d8a9f8a20abd7a360ced25626ada6291bdb6b9135cc730c3f21e1f0b"
+        },
+        {
+          "resource": "repo://src/collections/Posts/index.ts",
+          "version": "repo-file-v1:sha256:65b4bd8f451b37780106f504c5da94fd25923d71484ec2711c59d9bcaea3a639"
+        }
+      ]
+    },
+    {
+      "id": "claim_7f6c7dca13f248b8b699c6f6d6430f62",
+      "statement": "Page and post lifecycle hooks revalidate routes and sitemap tags, and create redirects when the slug of a published document changes.",
+      "evidence": [
+        {
+          "resource": "repo://src/collections/Pages/hooks/revalidatePage.ts",
+          "version": "repo-file-v1:sha256:fc581b54a0e3e48792afedaa3e294153ea1f50629a7c25410414930641dec286"
+        },
+        {
+          "resource": "repo://src/collections/Posts/hooks/revalidatePost.ts",
+          "version": "repo-file-v1:sha256:92ab61391a025fec624cb9d2ade612aebbd28c11c008c0e84af84b4a395ae709"
+        }
+      ]
+    },
+    {
+      "id": "claim_83961283164b41248e2e119c0e02c119",
+      "statement": "Media uploads are stored in public/media and configured to produce WebP derivatives at named responsive sizes.",
+      "evidence": [
+        {
+          "resource": "repo://src/collections/Media.ts",
+          "version": "repo-file-v1:sha256:cd803e62e13d61d5640571f1d23737f89f9b80e92165e60fd3fc25709f769eb4"
+        }
+      ]
+    },
+    {
+      "id": "claim_5acbf31dbf544734b8d168f7cfdf8c59",
+      "statement": "Anonymous comment creation is moderated by a default-unapproved field and a before-operation hook that rejects honeypot submissions and trims unauthenticated input.",
+      "evidence": [
+        {
+          "resource": "repo://src/collections/Comments.ts",
+          "version": "repo-file-v1:sha256:5619c3c391c5ce225256f44e3cbe47e98e6134dbbfcdbb769f63ef04b59f0a51"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-09T13:54:46.477Z"
+  }
+}

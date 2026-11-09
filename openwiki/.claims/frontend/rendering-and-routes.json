@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:cee99ff1b1f6bfe1586c3f66a70509c245afc59cc6ec5fd114a3548940ab5d8b",
+  "claims": [
+    {
+      "id": "claim_a17393ef32db4dfd89bff13c003399d1",
+      "statement": "The single-segment frontend route queries Pages by slug and falls back to PostPage when no page is found, while the legacy posts route permanently redirects to the single-segment URL.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/(frontend)/%5Bslug%5D/page.tsx",
+          "version": "repo-file-v1:sha256:17ceb2de37782180655bcce95023cac6380c56d4b2c4b0212ce50dcefad27a79"
+        },
+        {
+          "resource": "repo://src/app/(frontend)/posts/%5Bslug%5D/page.tsx",
+          "version": "repo-file-v1:sha256:c61987f7ee58c6e62efa72c94bb4090cc3ca60a394e348c19d2bf701451339c0"
+        }
+      ]
+    },
+    {
+      "id": "claim_eb12715191df4e4690e79f5163d2fbeb",
+      "statement": "The catch-all legacy route strips a final HTML extension, looks up a published post by final path segment, and falls back to PayloadRedirects when it cannot redirect to a matching post.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/(frontend)/%5B...legacy%5D/page.tsx",
+          "version": "repo-file-v1:sha256:960b675d1a200bfa53a4630a608e302f413a3ffd7ad4e2c2536401b01d3b3e20"
+        }
+      ]
+    },
+    {
+      "id": "claim_c3a574bfd37d40439143999bd31c63ac",
+      "statement": "PayloadRedirects permanently redirects matching direct URLs or document references and calls notFound unless disableNotFound is set.",
+      "evidence": [
+        {
+          "resource": "repo://src/components/PayloadRedirects/index.tsx",
+          "version": "repo-file-v1:sha256:af70a5e7924b1aa4011505b784c1a6a50d98796ff72d218bd6755ec05fe0fb99"
+        }
+      ]
+    },
+    {
+      "id": "claim_4081413e0f8946c1814eb46e7edb09ad",
+      "statement": "The preview endpoint requires a matching preview secret, relative path, and authenticated Payload user before it enables Next draft mode and redirects.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/(frontend)/next/preview/route.ts",
+          "version": "repo-file-v1:sha256:0c8832c2176073362336078dccdcdb533d9524a5beee4ff2155df6152bc9aa41"
+        }
+      ]
+    },
+    {
+      "id": "claim_7697de23b12e4c32ae284d8020fd10d8",
+      "statement": "The root frontend layout sets document language to Spanish, renders shared providers, Header, Footer, and AdminBar, and lazily loads analytics and AdSense only in production.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/(frontend)/layout.tsx",
+          "version": "repo-file-v1:sha256:5d994d103f9dee21bc11269c5197880f60108b002dbce3ad7a2e22804c122a45"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-09T13:54:46.477Z"
+  }
+}

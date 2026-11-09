@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:4f01afbfde4d7b642c69aca0436b575a5af420dfe530ee943df1aa9a6ab7ab85",
+  "claims": [
+    {
+      "id": "claim_9137fd7f296742b584549776a4155816",
+      "statement": "Vitest runs in a Node environment with the project setup file and includes integration and unit tests under tests/int and tests/unit.",
+      "evidence": [
+        {
+          "resource": "repo://vitest.config.mts",
+          "version": "repo-file-v1:sha256:5a605b15c0a099bb58f37fa1aaaa058bb6c6a89dd559bfe1aef1498cfa7bb5be"
+        }
+      ]
+    },
+    {
+      "id": "claim_24369a33d68945278afbec8dc7197da9",
+      "statement": "Playwright uses the configured frontend URL, runs Chromium and Firefox projects, starts the development server locally or the production server in CI, and retries only in CI.",
+      "evidence": [
+        {
+          "resource": "repo://playwright.config.ts",
+          "version": "repo-file-v1:sha256:d096eddb214c5ff3da49f3db443e7ca74f7872c800f6aa446ba935915d35aff9"
+        }
+      ]
+    },
+    {
+      "id": "claim_678630522f774b9787e8d0f400fe1e2b",
+      "statement": "The integration API test initializes Payload, creates and verifies a category-product relationship, and deletes those created records in afterAll cleanup.",
+      "evidence": [
+        {
+          "resource": "repo://tests/int/api.int.spec.ts",
+          "version": "repo-file-v1:sha256:6b51b30c75ef6f3819080d6e54a306d739836d1be3ffcf3d4dfac6cacf580489"
+        }
+      ]
+    },
+    {
+      "id": "claim_e71c46a57bb74dd187c00aa595c6e18d",
+      "statement": "Frontend E2E tests verify a successful homepage response and title and check that several viewport widths do not overflow horizontally.",
+      "evidence": [
+        {
+          "resource": "repo://tests/e2e/frontend.e2e.spec.ts",
+          "version": "repo-file-v1:sha256:4b1efcf4c9bb287f2dabf13789d7d9b039b5d80cafc512f54e5ca25fe2ba2114"
+        }
+      ]
+    },
+    {
+      "id": "claim_195c33c71f504d8d9a3e7188d8b87946",
+      "statement": "Admin E2E tests seed a user and post, exercise authenticated admin navigation, verify the public post editor link, and clean up the seeded records.",
+      "evidence": [
+        {
+          "resource": "repo://tests/e2e/admin.e2e.spec.ts",
+          "version": "repo-file-v1:sha256:81d48584afd941613e002ac314388d17f72b9e4261d64b34c3481944c8eb1ce8"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-09T13:54:46.477Z"
+  }
+}

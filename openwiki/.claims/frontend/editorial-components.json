@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:8d0bff7f6b29dcc4617702be42d16f1217802f9fd9c6f0159ff6f8d89597b54e",
+  "claims": [
+    {
+      "id": "claim_fa867e561f254ece96f791f3fc28ca2d",
+      "statement": "RenderHero dispatches configured page hero types to three hero components and renders nothing for none or unknown types.",
+      "evidence": [
+        {
+          "resource": "repo://src/heros/RenderHero.tsx",
+          "version": "repo-file-v1:sha256:b018a67d8208481b089a15090cff79fa2da29cc16ee0120a39555863cbe64ec5"
+        }
+      ]
+    },
+    {
+      "id": "claim_be319385250a4195bed87707137e438f",
+      "statement": "RenderBlocks maps the five page layout block types to components and ignores blocks that do not resolve to a mapped component.",
+      "evidence": [
+        {
+          "resource": "repo://src/blocks/RenderBlocks.tsx",
+          "version": "repo-file-v1:sha256:f5085b1e910ec3a9411cf34771ff77efb7b87eb238e12f75876404122d3be6ad"
+        }
+      ]
+    },
+    {
+      "id": "claim_81a7a0a22c944c2abc4a0239fd88d5fe",
+      "statement": "The RichText component converts lexical internal links, uploads, and named editorial blocks into project React components, rendering external image links only when isSafeImageLink accepts the supplied URL.",
+      "evidence": [
+        {
+          "resource": "repo://src/components/RichText/index.tsx",
+          "version": "repo-file-v1:sha256:2aa0c0f903c6081afb1bf959ed7f754daa6a99f0aa6632bda58fab7c892d3f9b"
+        }
+      ]
+    },
+    {
+      "id": "claim_3bb0668c44e844b3b22255e38d62db33",
+      "statement": "PostPage completes manually selected related posts with matching-category posts and then recent posts, stopping when it has three related posts.",
+      "evidence": [
+        {
+          "resource": "repo://src/components/PostPage/index.tsx",
+          "version": "repo-file-v1:sha256:b32b28379438ae683a44dcb100416e6c2d7c73f1866d6c44f6eaa6be44dded62"
+        }
+      ]
+    },
+    {
+      "id": "claim_c0b6d157f93b4550ab660b7dfcf27a0d",
+      "statement": "ProductBoxBlock builds Amazon links from a product ASIN and labels them with sponsored, nofollow, and noopener rel values.",
+      "evidence": [
+        {
+          "resource": "repo://src/blocks/ProductBox/Component.tsx",
+          "version": "repo-file-v1:sha256:856a8bd5915102c4befa7401f8d06c4f7f8f7d185e06ef150379d2e71d814471"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-09T13:54:46.477Z"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:2ce8ccda702c2b3acb9771d04814876f1aca034e889689fc4e00bf65e771efa3",
+  "claims": [
+    {
+      "id": "claim_be7da12d06164f07ae7f4d43eed440f0",
+      "statement": "Local Compose runs a bind-mounted Node development service and a PostgreSQL service whose database data is held in the named pg_data volume.",
+      "evidence": [
+        {
+          "resource": "repo://docker-compose.yml",
+          "version": "repo-file-v1:sha256:5fcb5771598445a8780e442800c8513f7c526c2771f62219a00f00e6ca47b4f9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5cdfe1c0f2d1430bb6a8cf677412c58c",
+      "statement": "The production CMS is read-only and persists public media through a host mount plus a named Next cache volume, while production PostgreSQL uses the separate host-mounted db_data directory and PGDATA subdirectory.",
+      "evidence": [
+        {
+          "resource": "repo://deploy/compose.prod.yml",
+          "version": "repo-file-v1:sha256:762d273b1bad21e524474c77b5d2df5ae92d2eaa3e163f2f4a2415a93ee33814"
+        }
+      ]
+    },
+    {
+      "id": "claim_891dbb3ec872448f9ec80e3ac5b02430",
+      "statement": "The production Dockerfile is runtime-only: it installs production dependencies and copies a prebuilt .next directory, public assets, source, scripts, and required configuration files.",
+      "evidence": [
+        {
+          "resource": "repo://Dockerfile",
+          "version": "repo-file-v1:sha256:8988004444940e277766eac4733876f18c4d8a82a5fcc71383e0a8f4d4c9cc99"
+        }
+      ]
+    },
+    {
+      "id": "claim_2932061bea49452a803fdfa2ca552d18",
+      "statement": "The release script pulls images, runs the cms-migrate profile, and then starts the CMS service.",
+      "evidence": [
+        {
+          "resource": "repo://deploy/release.sh",
+          "version": "repo-file-v1:sha256:c30ca99242266c665997b865db7997b893e0cf8e87ab1cec15538c0e0efa5559"
+        }
+      ]
+    },
+    {
+      "id": "claim_4acebc89a7974a1696f6654bb9f64377",
+      "statement": "The production database initialization script creates a limited cms login role when absent and grants it database, schema, table, sequence, and default privileges.",
+      "evidence": [
+        {
+          "resource": "repo://deploy/init-cms.sh",
+          "version": "repo-file-v1:sha256:aed7eb4b7604ddf26796ae03dac206bfc3d8a05ed51c9941d913fb9f8631061a"
+        }
+      ]
+    },
+    {
+      "id": "claim_76779f06e2004d6c8ab08c5aef341612",
+      "statement": "Payload migration registration is ordered in src/migrations/index.ts and supplies both up and down functions for each listed migration.",
+      "evidence": [
+        {
+          "resource": "repo://src/migrations/index.ts",
+          "version": "repo-file-v1:sha256:8c05ab2fce6223cd9b6aad88069a3823707cb2282c5b09e6352e85995176ac62"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-09T13:54:46.477Z"
+  }
+}

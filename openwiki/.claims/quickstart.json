@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:4d4740d5694e9f9a919ab73e362deb7e46700c61fcbcca2587493efeff8aef20",
+  "claims": [
+    {
+      "id": "claim_0e1cf02fe7f748a99e4fa99a08fb6969",
+      "statement": "The project package scripts provide development, production build/start, lint, test, Payload CLI, type generation, and import-map generation commands.",
+      "evidence": [
+        {
+          "resource": "repo://package.json",
+          "version": "repo-file-v1:sha256:09d80dfebc9342ef4743a91fb5b0b03c1895ac4be1ecb4dc53723c2280a67415"
+        }
+      ]
+    },
+    {
+      "id": "claim_c75fa4beac5b41ecaf199995f7111116",
+      "statement": "Local Compose exposes the application on port 3000 and PostgreSQL on port 5432, bind-mounts the repository into the application service, and uses named volumes for dependencies, Next cache, and PostgreSQL data.",
+      "evidence": [
+        {
+          "resource": "repo://docker-compose.yml",
+          "version": "repo-file-v1:sha256:5fcb5771598445a8780e442800c8513f7c526c2771f62219a00f00e6ca47b4f9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b9ea1c71e97a423ab2535081bb36506c",
+      "statement": "Payload configuration declares the application collections, Header and Footer globals, PostgreSQL connection, and generated type output path.",
+      "evidence": [
+        {
+          "resource": "repo://src/payload.config.ts",
+          "version": "repo-file-v1:sha256:d89dca47603b130e74d9a1e4c730ad4f822e7162005adbb7720b689e089e6721"
+        }
+      ]
+    },
+    {
+      "id": "claim_69b710c0179d45cdbc99b13d8acde6a2",
+      "statement": "The environment example defines database, Payload signing, server URL, cron, preview, and optional Amazon tag configuration values.",
+      "evidence": [
+        {
+          "resource": "repo://.env.example",
+          "version": "repo-file-v1:sha256:0be8fc11552e45fa06e9cd4f0a320044e37dd1ecb0fe10496cbb271539ea0379"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-09T13:54:46.477Z"
+  }
+}
