@@ -120,10 +120,10 @@ export const Posts: CollectionConfig<"posts"> = {
 														{
 															name: "url",
 															type: "text",
-															label: "Destination URL",
+															label: "URL de destino",
 															admin: {
 																description:
-																	"Optional URL opened when this image is clicked.",
+																	"URL opcional que se abre al hacer clic en la imagen.",
 															},
 															validate: validateImageLink,
 														},
@@ -141,7 +141,7 @@ export const Posts: CollectionConfig<"posts"> = {
 							required: true,
 						},
 					],
-					label: "Content",
+					label: "Contenido",
 				},
 				{
 					fields: [
@@ -165,6 +165,7 @@ export const Posts: CollectionConfig<"posts"> = {
 							name: "categories",
 							type: "relationship",
 							admin: {
+								allowCreate: true,
 								position: "sidebar",
 							},
 							hasMany: true,
@@ -191,7 +192,7 @@ export const Posts: CollectionConfig<"posts"> = {
 							},
 						},
 					],
-					label: "Meta",
+					label: "Metadatos",
 				},
 				{
 					name: "meta",

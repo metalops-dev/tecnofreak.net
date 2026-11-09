@@ -2,6 +2,7 @@ import configPromise from "@payload-config";
 import Link from "next/link";
 import type { Metadata } from "next/types";
 import { getPayload } from "payload";
+import { Media } from "@/components/Media";
 import type { Category } from "@/payload-types";
 
 export const dynamic = "force-dynamic";
@@ -77,17 +78,31 @@ export default async function Categorias() {
 					{activeCategories.length} categorías principales con artículos publicados · explora por tema
 				</p>
 			</header>
-			<ul className="m-0 mt-6 flex list-none flex-wrap gap-2 p-0">
+			<ul className="m-0 mt-6 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
 				{activeCategories.map(({ category, count }) => (
 					<li key={category.id}>
 						<Link
 							href={`/categorias/${category.slug}`}
-							className="inline-flex min-h-9 items-center gap-1.5 border border-rule bg-paper px-3 text-sm font-medium text-ink transition-colors duration-100 hover:border-teal hover:text-teal"
+							className="group block overflow-hidden border border-rule bg-paper transition-colors hover:border-teal"
 						>
-							{category.title}
-							<span className="kicker text-fog">
-								{count}
-							</span>
+							<div className="aspect-[16/9] bg-paper-2">
+								{category.image && typeof category.image === "object" ? (
+									<Media
+										resource={category.image}
+										className="h-full w-full"
+										imgClassName="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]"
+										size="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+									/>
+								) : (
+									<span className="tile-letter flex h-full items-center justify-center text-6xl text-teal" aria-hidden="true">
+										{category.title.charAt(0).toUpperCase()}
+									</span>
+								)}
+							</div>
+							<div className="flex items-baseline justify-between gap-3 p-4">
+								<h2 className="font-display text-xl font-bold group-hover:text-teal">{category.title}</h2>
+								<span className="kicker shrink-0 text-fog">{count} {count === 1 ? "artículo" : "artículos"}</span>
+							</div>
 						</Link>
 					</li>
 				))}
