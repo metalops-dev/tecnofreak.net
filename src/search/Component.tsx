@@ -2,18 +2,18 @@
 import { useRouter } from "next/navigation";
 import type React from "react";
 import { useEffect, useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useDebounce } from "@/utilities/useDebounce";
 
-export const Search: React.FC = () => {
-	const [value, setValue] = useState("");
+export const Search: React.FC<{ initialQuery: string }> = ({ initialQuery }) => {
+	const [value, setValue] = useState(initialQuery);
 	const router = useRouter();
 
 	const debouncedValue = useDebounce(value);
 
 	useEffect(() => {
-		router.push(`/search${debouncedValue ? `?q=${debouncedValue}` : ""}`);
+		const params = new URLSearchParams();
+		if (debouncedValue) params.set("q", debouncedValue);
+		router.replace(`/search${params.size ? `?${params}` : ""}`);
 	}, [debouncedValue, router]);
 
 	return (
@@ -23,19 +23,15 @@ export const Search: React.FC = () => {
 					e.preventDefault();
 				}}
 			>
-				<Label htmlFor="search" className="sr-only">
-					Search
-				</Label>
-				<Input
+				<label htmlFor="search" className="sr-only">Buscar noticias</label>
+				<input
 					id="search"
-					onChange={(event) => {
-						setValue(event.target.value);
-					}}
-					placeholder="Search"
+					type="search"
+					value={value}
+					onChange={(event) => setValue(event.target.value)}
+					placeholder="Buscar noticias…"
+					className="min-h-11 w-full border border-rule bg-paper px-4 text-sm text-ink placeholder:text-fog focus:border-teal"
 				/>
-				<button type="submit" className="sr-only">
-					submit
-				</button>
 			</form>
 		</div>
 	);

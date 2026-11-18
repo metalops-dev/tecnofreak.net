@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-18T15:19:20.490389+00:00",
+  "title": "Design System: tecnofreak.net",
+  "extensions": {
+    "colorMeta": {
+      "teal": {
+        "role": "primary",
+        "displayName": "Teal",
+        "canonical": "oklch(52% 0.14 168)",
+        "tonalRamp": [
+          "oklch(15% 0.04 168)",
+          "oklch(25% 0.07 168)",
+          "oklch(35% 0.10 168)",
+          "oklch(45% 0.13 168)",
+          "oklch(55% 0.14 168)",
+          "oklch(70% 0.11 168)",
+          "oklch(85% 0.07 168)",
+          "oklch(95% 0.02 168)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(98.5% 0.004 220)",
+        "tonalRamp": [
+          "oklch(15% 0.004 220)",
+          "oklch(25% 0.004 220)",
+          "oklch(35% 0.004 220)",
+          "oklch(45% 0.004 220)",
+          "oklch(55% 0.004 220)",
+          "oklch(70% 0.004 220)",
+          "oklch(85% 0.004 220)",
+          "oklch(95% 0.004 220)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(20% 0.03 255)",
+        "tonalRamp": [
+          "oklch(15% 0.02 255)",
+          "oklch(25% 0.03 255)",
+          "oklch(35% 0.03 255)",
+          "oklch(45% 0.03 255)",
+          "oklch(55% 0.03 255)",
+          "oklch(70% 0.02 255)",
+          "oklch(85% 0.01 255)",
+          "oklch(95% 0.005 255)"
+        ]
+      }
+    },
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "40rem"
+      },
+      {
+        "name": "md",
+        "value": "48rem"
+      },
+      {
+        "name": "lg",
+        "value": "64rem"
+      },
+      {
+        "name": "xl",
+        "value": "80rem"
+      },
+      {
+        "name": "2xl",
+        "value": "86rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Shared default button.",
+      "html": "<button class=\"ds-button\">Continue</button>",
+      "css": ".ds-button { background: var(--primary); color: var(--primary-foreground); border: 0; border-radius: calc(var(--radius) - 2px); height: 2.5rem; padding: .5rem 1rem; font-size: .875rem; font-weight: 500; cursor: pointer; } .ds-button:hover { opacity: .9; } .ds-button:focus-visible { outline: 2px solid oklch(54% .16 250); outline-offset: 2px; }"
+    },
+    {
+      "name": "Search field",
+      "kind": "input",
+      "description": "Editorial header search.",
+      "html": "<input class=\"ds-search\" type=\"search\" aria-label=\"Search\" placeholder=\"Buscar…\">",
+      "css": ".ds-search { min-height: 2.25rem; width: 8rem; border: 1px solid var(--color-rule); background: var(--color-paper-2); color: var(--color-ink); padding: 0 .75rem; font-size: .875rem; transition: width 150ms; } .ds-search::placeholder { color: var(--color-fog); } .ds-search:focus { width: 12rem; border-color: var(--color-teal); outline: none; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Editorial navigation with active link.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Example\"><a href=\"#\" aria-current=\"page\">Inicio</a><a href=\"#\">Noticias</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 1.5rem; font: 500 .875rem var(--font-plex-sans), sans-serif; } .ds-nav a { color: var(--color-fog); text-decoration: none; } .ds-nav a[aria-current] { color: var(--color-teal); } .ds-nav a:hover { color: var(--color-ink); } .ds-nav a:focus-visible { outline: 2px solid oklch(54% .16 250); outline-offset: 2px; }"
+    },
+    {
+      "name": "Article card",
+      "kind": "card",
+      "description": "Editorial story with category and title.",
+      "html": "<article class=\"ds-card\"><a href=\"#\"><div class=\"ds-media\"></div><p class=\"ds-label\">Tecnología</p><h3>Una historia de tecnología</h3></a></article>",
+      "css": ".ds-card a { color: var(--color-ink); text-decoration: none; } .ds-media { aspect-ratio: 16 / 9; background: var(--color-paper-2); } .ds-label { color: var(--color-teal); font: 500 .72rem var(--font-plex-mono), monospace; letter-spacing: .09em; text-transform: uppercase; margin: .75rem 0 .375rem; } .ds-card h3 { font-family: var(--font-space-grotesk), sans-serif; font-weight: 700; margin: 0; } .ds-card a:hover h3 { color: var(--color-teal); } .ds-card a:focus-visible { outline: 2px solid oklch(54% .16 250); outline-offset: 2px; }"
+    },
+    {
+      "name": "Archive filter",
+      "kind": "chip",
+      "description": "Bordered year filter with an active teal state.",
+      "html": "<a class=\"ds-filter\" href=\"#\" aria-current=\"page\">TODOS</a>",
+      "css": ".ds-filter { display: inline-flex; padding: .5rem .75rem; border: 1px solid var(--color-teal); background: var(--color-teal-soft); color: var(--color-teal); font: .72rem var(--font-plex-mono), monospace; letter-spacing: .09em; text-decoration: none; } .ds-filter:hover { color: var(--color-ink); } .ds-filter:focus-visible { outline: 2px solid oklch(54% .16 250); outline-offset: 2px; }"
+    },
+    {
+      "name": "Affiliate action",
+      "kind": "button",
+      "description": "Pill-shaped external product link.",
+      "html": "<a class=\"ds-affiliate\" href=\"#\">Ver en Amazon ↗</a>",
+      "css": ".ds-affiliate { display: inline-flex; align-items: center; justify-content: center; height: 2.75rem; padding: 0 1.5rem; border-radius: 9999px; background: var(--color-ink); color: var(--color-paper); font: 600 .875rem var(--font-plex-sans), sans-serif; text-decoration: none; transition: background-color 100ms; } .ds-affiliate:hover { background: var(--color-teal); } .ds-affiliate:focus-visible { outline: 2px solid oklch(54% .16 250); outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Tech Newsroom",
+    "overview": "A clear, editorial interface gives articles and headlines the leading role. A light paper-like canvas, dark ink, concise rules, and a restrained teal accent create the character of a contemporary technology publication.\n\nComponents are practical and restrained. The system relies on hierarchy, typography, and spacing rather than decorative depth; functional controls and overlays may have subtle lift.",
+    "keyCharacteristics": [
+      "Editorial hierarchy with strong display headlines and compact metadata.",
+      "Paper, ink, and teal with quiet dividers.",
+      "Flat article surfaces and restrained functional controls.",
+      "Responsive navigation and reading-focused text widths."
+    ],
+    "rules": [],
+    "dos": [
+      "Do use the editorial paper, ink, fog, rule, and teal tokens for the public-facing visual language.",
+      "Do keep article hierarchy clear with display headlines and monospaced metadata.",
+      "Do preserve visible keyboard focus and reduced-motion support."
+    ],
+    "donts": [
+      "Don't assume the editorial palette changes with the semantic dark-theme tokens.",
+      "Don't substitute elevated card surfaces for the existing flat editorial article patterns without a deliberate design decision."
+    ]
+  }
+}

@@ -71,7 +71,7 @@ export default async function Page({
 					Buscar
 				</h1>
 				<div className="mt-6">
-					<Search />
+					<Search initialQuery={query ?? ""} />
 				</div>
 			</div>
 
