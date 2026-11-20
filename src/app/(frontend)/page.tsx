@@ -131,7 +131,7 @@ export default async function HomePage() {
 							</div>
 							{featuredSet.totalDocs > posts.length && (
 								<p className="mt-8 border-t border-rule pt-5">
-									<Link href="/posts/page/2" className="link-more text-sm">
+									<Link href="/posts" className="link-more text-sm">
 										Ver todas las noticias
 									</Link>
 								</p>
@@ -155,7 +155,7 @@ export default async function HomePage() {
 								))}
 							</ul>
 							<p className="mt-3">
-								<Link href="/etiquetas" className="link-more text-sm">
+								<Link href="/categorias" className="link-more text-sm">
 									Todas las categorías
 								</Link>
 							</p>

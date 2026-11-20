@@ -254,7 +254,10 @@
 		color: var(--color-paper);
 	}
 	a:focus-visible,
-	button:focus-visible {
+	button:focus-visible,
+	input:focus-visible,
+	select:focus-visible,
+	textarea:focus-visible {
 		outline: 2px solid oklch(54% 0.16 250);
 		outline-offset: 2px;
 	}

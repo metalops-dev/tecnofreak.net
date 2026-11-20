@@ -85,11 +85,12 @@ export default async function Categorias() {
 							href={`/categorias/${category.slug}`}
 							className="group block overflow-hidden border border-rule bg-paper transition-colors hover:border-teal"
 						>
-							<div className="aspect-[16/9] bg-paper-2">
+							<div className="aspect-[16/9] overflow-hidden bg-paper-2">
 								{category.image && typeof category.image === "object" ? (
 									<Media
 										resource={category.image}
 										className="h-full w-full"
+										pictureClassName="h-full"
 										imgClassName="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]"
 										size="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
 									/>
@@ -99,7 +100,7 @@ export default async function Categorias() {
 									</span>
 								)}
 							</div>
-							<div className="flex items-baseline justify-between gap-3 p-4">
+							<div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 p-4">
 								<h2 className="font-display text-xl font-bold group-hover:text-teal">{category.title}</h2>
 								<span className="kicker shrink-0 text-fog">{count} {count === 1 ? "artículo" : "artículos"}</span>
 							</div>
